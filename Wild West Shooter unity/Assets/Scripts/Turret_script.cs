@@ -1,25 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Turret_script : MonoBehaviour
 {
-    [SerializeField] private float chooseTurret;
+    private float chooseTurret;
+    private float rotate;
+    [SerializeField] private float rotateStrengh;
+    [SerializeField] private float chosenTurret;
+    [SerializeField] private float shootTime;
+    [SerializeField] private GameObject bullet;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("Shoot", shootTime, shootTime);
     }
 
     // Update is called once per frame
     void Update()
     {
         chooseTurret = Input.GetAxisRaw("Vertical");
-        shoot();
+        rotate = Input.GetAxisRaw("Horizontal");
+        Rotate();
     }
 
-    void shoot()
+    void Shoot()
     {
-        // Instantiate(bullet,)
+        Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
+    }
+
+    void Rotate()
+    {
+        if (rotate == 1 && chooseTurret == chosenTurret)
+        {
+            gameObject.transform.Rotate(0f, rotateStrengh * Time.deltaTime, 0f);
+        }
+        if (rotate == -1 && chooseTurret == chosenTurret)
+        {
+            gameObject.transform.Rotate(0f, -rotateStrengh * Time.deltaTime, 0f);
+        }
     }
 }
