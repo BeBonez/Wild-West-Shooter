@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class Turret_script : MonoBehaviour
 {
+    // This Script is fully done!!!
+
     private float chooseTurret;
     private float rotate;
     [SerializeField] private float rotateStrengh;
