@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Bandit_script : MonoBehaviour
 {
-    // I need to choose whether the bullets or the bandits are going to see the damage factor.
+    // This script is fully done! Till build2...
+
     // Doing the slow factor could be a boolean: half the speed if true and set a timer within to defreeze.
     // Otherwise the push factor would be added depending on the enemy speed (+/-).
 
-    private float speed = 100f;
-    private int health = 3;
-    private int damage = 25;
+    public float speed;
+    public float vSpeed;
+    public int health;
+    public int steal;
 
     // how to add game manager stuff here?
 
@@ -21,36 +24,52 @@ public class Bandit_script : MonoBehaviour
     {
         checkSide();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(speed * Time.deltaTime, 0f, 0f);
-        Health();
-
-    }
-
     void checkSide()
     {
         if (gameObject.transform.position.x == 1100)
         {
-            speed *= -1;
+            transform.Rotate(new Vector3(0, -180, 0));
+        }
+    }
+
+    // Movement and Health. 
+    void Update()
+    {
+        Health();
+        transform.Translate(0f, 0f, speed * Time.deltaTime);
+        CheckBoundaries();
+        transform.Translate(vSpeed * Time.deltaTime, 0f, 0f);
+
+    }
+    void Health()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void CheckBoundaries()
+    {
+        if (transform.position.z > 340 || transform.position.z < -400)
+        {
+            vSpeed *= -1;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        // When being hit by a bullet
+        if (other.CompareTag("Bullet"))
+        {
+            health -= other.GetComponent<Bullet_script>().damage;
+            Destroy(other.gameObject);
+        }
+
+        // When Attacking the Player:
         if (other.CompareTag("Player"))
         {
             Damage();
-            Destroy(gameObject);
-        }
-    }
-
-    void Health()
-    {
-        if (health <= 0)
-        {
             Destroy(gameObject);
         }
     }

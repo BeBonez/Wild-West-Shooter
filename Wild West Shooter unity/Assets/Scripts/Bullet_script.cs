@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet_script : MonoBehaviour
 {
-    // Do I try to make this more reusable?
-    // I Could do a change in how much damage it gives to enemies with public variables
-    // I could add a Serialized area to make the slowness or push factor
+    // This script is fully done! Till build2...
+
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
