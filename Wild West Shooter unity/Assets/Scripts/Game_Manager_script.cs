@@ -9,14 +9,23 @@ public class Game_Manager_script : MonoBehaviour
     // Another script for UI
     // Another script handle game Events = Spawn
 
+    [SerializeField] GameObject VictoryPanel;
+    [SerializeField] GameObject DefeatPanel;
+
     public int gold;
     public int defeated;
     private int goal;
 
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Level 1")
+
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
             gold = 100;
             defeated = 0;
@@ -35,6 +44,7 @@ public class Game_Manager_script : MonoBehaviour
     {
         if (gold <= 0)
         {
+            DefeatPanel.SetActive(true);
             Time.timeScale = 0f;
         }
     }
@@ -42,7 +52,12 @@ public class Game_Manager_script : MonoBehaviour
     {
         if (defeated == goal)
         {
+            VictoryPanel.SetActive(true);
             Time.timeScale = 0f;
         }
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }

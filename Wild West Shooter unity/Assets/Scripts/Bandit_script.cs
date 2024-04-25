@@ -76,6 +76,7 @@ public class Bandit_script : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Damage();
+            manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);
         }
     }
