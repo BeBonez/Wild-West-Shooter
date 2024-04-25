@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
+  tree: {fileID: 1766113784712848481, guid: 9755a94c611c87a4aacb1ae05ab78c69, type: 3}
+  goldBox: {fileID: 73040571765570421, guid: 68caefc2ed4c290428892b2cafb615f1, type: 3}
 --- !u!114 &79705782
 MonoBehaviour:
   m_ObjectHideFlags: 0

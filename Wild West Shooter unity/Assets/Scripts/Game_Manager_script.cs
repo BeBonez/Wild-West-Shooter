@@ -19,6 +19,7 @@ public class Game_Manager_script : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
             gold = 100;
+            defeated = 0;
             goal = 30;
         }
     }

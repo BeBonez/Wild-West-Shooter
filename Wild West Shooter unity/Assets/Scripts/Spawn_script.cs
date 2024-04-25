@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,13 +12,18 @@ public class Spawn_script : MonoBehaviour
     // [SerializeField] float levelProgression;
 
     [SerializeField] GameObject bandit;
+    [SerializeField] GameObject tree;
+    [SerializeField] GameObject goldBox;
+
     int repeatTime = 0;
     float timer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Wave());
+        InvokeRepeating("Items", 5f, 5f);
     }
 
     // Update is called once per frame
@@ -44,7 +50,7 @@ public class Spawn_script : MonoBehaviour
 
         do
         {
-            Spawn(5, bandit, 50f, 0f, 6, 25, 3f, 5);
+            Spawn(3, bandit, 50f, 0f, 6, 25, 3f, 5);
             yield return new WaitForSeconds(timer);
         }
         while (repeatTime > 0);
@@ -77,5 +83,21 @@ public class Spawn_script : MonoBehaviour
         }
 
         repeatTime--;
+    }
+    void Items()
+    {
+        int ySpace;
+        GameObject item;
+        int select = Random.Range(0, 4);
+        if (select == 0)
+        {
+            item = goldBox; ySpace = 30;
+        }
+        else
+        {
+            item = tree; ySpace = 140;
+        }
+        Instantiate(item, new Vector3(Random.Range(300, 800), ySpace, 600), Quaternion.identity);
+        Instantiate(item, new Vector3(Random.Range(-300, -800), ySpace, 600), Quaternion.identity);
     }
 }
