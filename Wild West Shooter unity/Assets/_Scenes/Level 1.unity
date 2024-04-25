@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 79705781}
   - component: {fileID: 79705780}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
+  m_Name: Game Manager
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314ce3e02e3ffe645820708309e2ab74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
 --- !u!114 &79705782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd42dc16c79d1a342a949d506198dac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 100
+  gold: 0
+  defeated: 0
 --- !u!1001 &204915986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,67 +392,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 42.936, y: 8.674, z: 19.232}
---- !u!1001 &663227546
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -129
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6292506095576772261, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_Name
-      value: Disguised Bandit (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
 --- !u!1001 &835103557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c42f61b2929aeab469fa91172f990da5, type: 3}
       propertyPath: m_Name
       value: Train
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c42f61b2929aeab469fa91172f990da5, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -633,6 +578,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Name
       value: Bottom Wagon Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -942,6 +891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Wagon Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1055,6 +1008,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Name
       value: Middle Wagon Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1273,7 +1230,7 @@ GameObject:
   - component: {fileID: 1843778830}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1507,74 +1464,11 @@ Transform:
   - {fileID: 1843778830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2084024788115259669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -129
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5903280345768927611, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6292506095576772261, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
-      propertyPath: m_Name
-      value: Disguised Bandit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 79705779}
   - {fileID: 1342567699}
   - {fileID: 645628932}
-  - {fileID: 79705779}
   - {fileID: 2135087376}
-  - {fileID: 2084024788115259669}
-  - {fileID: 663227546}

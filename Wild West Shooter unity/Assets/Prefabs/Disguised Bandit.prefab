@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Disguised Bandit
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -99,10 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae25d1995a8cc29409365c54227302e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 0
   vSpeed: 0
-  health: 6
-  steal: 25
+  health: 0
+  steal: 0
 --- !u!136 &3249733937277594462
 CapsuleCollider:
   m_ObjectHideFlags: 0

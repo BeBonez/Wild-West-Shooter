@@ -16,6 +16,7 @@ public class Bandit_script : MonoBehaviour
     public float vSpeed;
     public int health;
     public int steal;
+    GameObject manager; 
 
     // how to add game manager stuff here?
 
@@ -23,12 +24,16 @@ public class Bandit_script : MonoBehaviour
     void Start()
     {
         checkSide();
+        manager = GameObject.FindGameObjectWithTag("Manager");
     }
     void checkSide()
     {
         if (gameObject.transform.position.x == 1100)
         {
-            transform.Rotate(new Vector3(0, -180, 0));
+            transform.Rotate(new Vector3(0, -90, 0));
+        } else
+        {
+            transform.Rotate(new Vector3(0, 90, 0));
         }
     }
 
@@ -45,6 +50,7 @@ public class Bandit_script : MonoBehaviour
     {
         if (health <= 0)
         {
+            manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);
         }
     }
@@ -76,6 +82,6 @@ public class Bandit_script : MonoBehaviour
 
     void Damage()
     {
-        // remove gold which is in game manager script
+        manager.GetComponent<Game_Manager_script>().gold -= steal;
     }
 }

@@ -1,21 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawn_script : MonoBehaviour
 {
-    // make levelProgression tied to Spawn()
-    // test: Invoke + for loop || InvokeRepeating + CancelInvoke
+    // There must be a way to improve this wave code in a further build...
+
+    // [SerializeField] float levelProgression;
+
+    [SerializeField] GameObject bandit;
+    int repeatTime = 0;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Wave());
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    IEnumerator Wave()
+    {
+        do
+        {
+            Spawn(1, bandit, 50f, 0f, 6, 25, 3f, 5);
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(2, bandit, 50f, 0f, 6, 25, 3f, 5);
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(5, bandit, 50f, 0f, 6, 25, 3f, 5);
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+    }
+    void Spawn(int qtd, GameObject enemy, float spd, float vspd, int hp, int dmg, float time, int repeat)
+    {
+        if (repeatTime <= 0)
+        {
+            repeatTime = repeat;
+            timer = time;
+        }
         
+        enemy.GetComponent<Bandit_script>().speed = spd;
+        enemy.GetComponent<Bandit_script>().vSpeed = vspd;
+        enemy.GetComponent<Bandit_script>().health = hp;
+        enemy.GetComponent<Bandit_script>().steal = dmg;
+
+        for (int i = 0; i < qtd; i++)
+        {
+            int side = Random.Range(0, 2);
+            if (side == 0)
+            {
+                side = 1100;
+            }
+            else
+            {
+                side = -1100;
+            }
+            Instantiate(enemy, new Vector3(side, 5, Random.Range(-340, 400)), Quaternion.identity);
+        }
+
+        repeatTime--;
     }
 }
