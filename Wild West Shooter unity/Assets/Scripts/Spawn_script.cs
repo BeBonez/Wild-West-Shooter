@@ -12,7 +12,8 @@ public class Spawn_script : MonoBehaviour
 
     [SerializeField] GameObject bandit;
     [SerializeField] GameObject tree;
-    [SerializeField] GameObject goldBox;
+    [SerializeField] GameObject trail;
+    [SerializeField] GameObject box;
 
     int repeatTime = 0;
     float timer;
@@ -23,6 +24,7 @@ public class Spawn_script : MonoBehaviour
     {
         StartCoroutine(Wave());
         InvokeRepeating("Items", 5f, 5f);
+        InvokeRepeating("Trails", 2f, 2f);
     }
 
     // Update is called once per frame
@@ -90,13 +92,25 @@ public class Spawn_script : MonoBehaviour
         int select = Random.Range(0, 4);
         if (select == 0)
         {
-            item = goldBox; ySpace = 30;
+            item = box; ySpace = 30;
         }
         else
         {
             item = tree; ySpace = 140;
         }
-        Instantiate(item, new Vector3(Random.Range(300, 800), ySpace, 600), Quaternion.identity);
-        Instantiate(item, new Vector3(Random.Range(-300, -800), ySpace, 600), Quaternion.identity);
+
+        select = Random.Range(0, 4);
+        if (select <= 1)
+        {
+            Instantiate(item, new Vector3(Random.Range(300, 800), ySpace, 600), Quaternion.identity);            
+        } else
+        {
+            Instantiate(item, new Vector3(Random.Range(-300, -800), ySpace, 600), Quaternion.identity);
+        }
     }
+    void Trails()
+    {
+        Instantiate(trail, new Vector3(0, 0, 863), Quaternion.identity);
+    }
+
 }

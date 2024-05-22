@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using TMPro;
+
 public class UI_script : MonoBehaviour
 {
-    [SerializeField] Text currentGold;
+    [SerializeField] TMP_Text currentGold;
+    [SerializeField] Text currentFakeGold;
     public GameObject manager;
 
     // Start is called before the first frame update
@@ -19,6 +22,13 @@ public class UI_script : MonoBehaviour
     void Update()
     {
         currentGold.text = "Gold: " + manager.GetComponent<Game_Manager_script>().gold;
+        if (manager.GetComponent<Game_Manager_script>().fakeGold > 0)
+        {
+            currentFakeGold.text = "Fake Gold: " + manager.GetComponent<Game_Manager_script>().fakeGold;
+        }  else
+        {
+            currentFakeGold.text = " ";
+        }
     }
 
     public void Play() {

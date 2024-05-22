@@ -6,8 +6,6 @@ using UnityEngine.AI;
 
 public class Bandit_script : MonoBehaviour
 {
-    // This script is fully done! Till build2...
-
     // Doing the slow factor could be a boolean: half the speed if true and set a timer within to defreeze.
     // Otherwise the push factor would be added depending on the enemy speed (+/-).
 
@@ -49,6 +47,7 @@ public class Bandit_script : MonoBehaviour
     {
         if (health <= 0)
         {
+            Audio_script.Instance.TocarSFX(0);
             manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);
         }
@@ -69,6 +68,7 @@ public class Bandit_script : MonoBehaviour
         {
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
+            Health();
         }
 
         // When Attacking the Player:
@@ -82,6 +82,6 @@ public class Bandit_script : MonoBehaviour
 
     void Damage()
     {
-        manager.GetComponent<Game_Manager_script>().gold -= steal;
+        manager.GetComponent<Game_Manager_script>().TakeDamage(steal);
     }
 }

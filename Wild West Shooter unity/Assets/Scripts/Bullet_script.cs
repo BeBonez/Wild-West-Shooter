@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Bullet_script : MonoBehaviour
 {
-    // This script is fully done! Till build2...
-
     public int damage;
     [SerializeField] GameObject manager;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +24,7 @@ public class Bullet_script : MonoBehaviour
     {
         if (other.CompareTag("PowerUp")) {
            Destroy(other.gameObject);
-           manager.GetComponent<Game_Manager_script>().gold += 25;
+           manager.GetComponent<Game_Manager_script>().fakeGold += 25;
         }
     }
 }

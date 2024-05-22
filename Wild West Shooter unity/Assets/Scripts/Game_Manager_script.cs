@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Game_Manager_script : MonoBehaviour
 {
-    // This script handle game States (which Scene && currency)
-    // Another script for UI
-    // Another script handle game Events = Spawn
+    // This script handle game States (Win, lose) as well as the HUD
 
     [SerializeField] GameObject VictoryPanel;
     [SerializeField] GameObject DefeatPanel;
 
     public int gold;
+    public int fakeGold;
     public int defeated;
     private int goal;
 
@@ -28,6 +27,7 @@ public class Game_Manager_script : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             gold = 100;
+            fakeGold = 0;
             defeated = 0;
             goal = 30;
         }
@@ -35,7 +35,15 @@ public class Game_Manager_script : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if (fakeGold < 0)
+        {
+            fakeGold = 0;
+        }
+        if (gold < 0)
+        {
+            gold = 0;
+        }
         Lose();
         Win();
     }
@@ -55,6 +63,18 @@ public class Game_Manager_script : MonoBehaviour
             VictoryPanel.SetActive(true);
             Time.timeScale = 0f;
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (fakeGold <= 0)
+        {
+            gold -= amount;
+        } else
+        {
+            fakeGold -= amount;
+        }
+        
     }
     public void MainMenu()
     {
