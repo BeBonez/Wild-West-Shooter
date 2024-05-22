@@ -47,7 +47,7 @@ public class Bandit_script : MonoBehaviour
     {
         if (health <= 0)
         {
-            Audio_script.Instance.TocarSFX(0);
+            // Audio_script.Instance.TocarSFX();
             manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);
         }

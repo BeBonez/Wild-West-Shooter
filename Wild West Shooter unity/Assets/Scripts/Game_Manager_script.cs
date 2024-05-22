@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Game_Manager_script : MonoBehaviour
 {
@@ -9,11 +11,16 @@ public class Game_Manager_script : MonoBehaviour
 
     [SerializeField] GameObject VictoryPanel;
     [SerializeField] GameObject DefeatPanel;
+    [SerializeField] TMP_Text currentGold;
+    [SerializeField] TMP_Text currentFakeGold;
 
     public int gold;
     public int fakeGold;
+    public float trainSpeed;
     public int defeated;
     private int goal;
+
+    private float timer;
 
     private void Awake()
     {
@@ -23,19 +30,29 @@ public class Game_Manager_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        if (SceneManager.GetActiveScene().name == "Level1")
+        // Level 1 goals
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             gold = 100;
             fakeGold = 0;
             defeated = 0;
             goal = 30;
         }
+
+        // Level 2 goals
+        //if (SceneManager.GetActiveScene().buildIndex == 2)
+        //{
+        //    gold = 100;
+        //    fakeGold = 0;
+        //    defeated = 0;
+        //    goal = 30;
+        //}
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        // No less than 0
         if (fakeGold < 0)
         {
             fakeGold = 0;
@@ -44,8 +61,21 @@ public class Game_Manager_script : MonoBehaviour
         {
             gold = 0;
         }
+
+        // HUD
+        currentGold.text = "Gold: " + gold;
+        if (fakeGold > 0)
+        {
+            currentFakeGold.text = "Fake Gold: " + fakeGold;
+        }
+        else
+        {
+            currentFakeGold.text = " ";
+        }       
+
+        // If not lose, then win!
         Lose();
-        Win();
+        Win();     
     }
 
     void Lose()
@@ -58,10 +88,14 @@ public class Game_Manager_script : MonoBehaviour
     }
     void Win()
     {
-        if (defeated == goal)
-        {
-            VictoryPanel.SetActive(true);
-            Time.timeScale = 0f;
+        if (defeated >= goal)
+        {           
+            timer += Time.deltaTime;
+            if (timer >= 0.5f)
+            {
+                VictoryPanel.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
 
@@ -75,9 +109,5 @@ public class Game_Manager_script : MonoBehaviour
             fakeGold -= amount;
         }
         
-    }
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("StartMenu");
     }
 }

@@ -23,8 +23,16 @@ public class Bullet_script : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PowerUp")) {
-           Destroy(other.gameObject);
-           manager.GetComponent<Game_Manager_script>().fakeGold += 25;
+            int select = Random.Range(0, 4);
+            if (select <= 1)
+            {
+                manager.GetComponent<Game_Manager_script>().fakeGold += 25;
+                Destroy(other.gameObject);
+            } else
+            {
+                manager.GetComponent<Game_Manager_script>().trainSpeed += 3;
+                Destroy(other.gameObject);
+            }
         }
     }
 }
