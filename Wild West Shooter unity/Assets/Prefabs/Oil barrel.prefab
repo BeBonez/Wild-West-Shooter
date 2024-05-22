@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8502932021759543607}
   - component: {fileID: -5055198967301937767}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: Oil barrel
+  m_TagString: SlowingBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0397ec584898ac7458eb027ac6379a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 1
   manager: {fileID: 0}
 --- !u!54 &-5055198967301937767
 Rigidbody:

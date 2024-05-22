@@ -563,8 +563,8 @@ MonoBehaviour:
   rotateStrengh: 180
   chosenTurret: -1
   shootTime: 0
-  reloadTime: 3
-  bullet: {fileID: 2252914555234635640, guid: 02e22b07aef72e64c975795658d7d000, type: 3}
+  reloadTime: 1.5
+  bullet: {fileID: 2252914555234635640, guid: c7af2947c9afe894e81577837077942a, type: 3}
   manager: {fileID: 79705778}
 --- !u!1 &645628930
 GameObject:
@@ -2773,7 +2773,7 @@ MonoBehaviour:
   rotateStrengh: 180
   chosenTurret: 1
   shootTime: 0
-  reloadTime: 5
+  reloadTime: 4.5
   bullet: {fileID: 2252914555234635640, guid: 1f09dcf82cfdc244eb73d62211f2882b, type: 3}
   manager: {fileID: 79705778}
 --- !u!1 &1950570504

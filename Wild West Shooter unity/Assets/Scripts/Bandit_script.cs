@@ -41,7 +41,6 @@ public class Bandit_script : MonoBehaviour
         transform.Translate(0f, 0f, speed * Time.deltaTime);
         CheckBoundaries();
         transform.Translate(vSpeed * Time.deltaTime, 0f, 0f);
-
     }
     void Health()
     {
@@ -68,6 +67,18 @@ public class Bandit_script : MonoBehaviour
         {
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
+            Health();
+        }
+
+        if (other.CompareTag("SlowingBullet"))
+        {
+            health -= other.GetComponent<Bullet_script>().damage;
+            Destroy(other.gameObject);
+            if (speed > 20) 
+            {
+                speed -= 20;
+            }
+            
             Health();
         }
 
