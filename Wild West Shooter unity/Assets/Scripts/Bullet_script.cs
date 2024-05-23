@@ -23,6 +23,7 @@ public class Bullet_script : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PowerUp")) {
+            Audio_script.Instance.TocarSFX(6);
             int select = Random.Range(0, 4);
             if (select <= 1)
             {

@@ -23,14 +23,17 @@ public class UI_script : MonoBehaviour
         //}
     }
     public void Play() {
+        Audio_script.Instance.TocarSFX(0);
         SceneManager.LoadScene(1);
     }
     public void Exit()
     {
+        Audio_script.Instance.TocarSFX(0);
         Application.Quit();
     }
     public void MainMenu()
     {
+        Audio_script.Instance.TocarSFX(0);
         SceneManager.LoadScene(0);
     }
 }

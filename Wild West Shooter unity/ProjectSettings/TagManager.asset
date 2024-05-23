@@ -9,6 +9,8 @@ TagManager:
   - Manager
   - PowerUp
   - Power Up
+  - SlowingBullet
+  - PianoBullet
   layers:
   - Default
   - TransparentFX

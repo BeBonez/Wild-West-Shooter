@@ -156,7 +156,14 @@ MonoBehaviour:
   _sfxSrc: {fileID: 1746428285}
   _bgMusics:
   - {fileID: 8300000, guid: 475298751a30d654fae1463ff12225ed, type: 3}
-  _sfxClips: []
+  _sfxClips:
+  - {fileID: 8300000, guid: 2baca05becee6b94a80dcbd4978905a1, type: 3}
+  - {fileID: 8300000, guid: 8fb8a853f085bc246973348228867dcc, type: 3}
+  - {fileID: 8300000, guid: b038504d9daaa3d4f8e6394780b1533e, type: 3}
+  - {fileID: 8300000, guid: 12e21db2f556c9c45a6bd9fed51316b7, type: 3}
+  - {fileID: 8300000, guid: d114326f5b52f774bb2cfc656c2adceb, type: 3}
+  - {fileID: 8300000, guid: fdbdadddd581edf4dbea09e6649b908a, type: 3}
+  - {fileID: 8300000, guid: 90424c08c09334c4eb0b43d5145940bf, type: 3}
 --- !u!4 &25832343
 Transform:
   m_ObjectHideFlags: 0
@@ -2942,7 +2949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2016624884
 RectTransform:
   m_ObjectHideFlags: 0

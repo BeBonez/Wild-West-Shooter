@@ -48,7 +48,7 @@ public class Bandit_script : MonoBehaviour
     {
         if (health <= 0)
         {
-            // Audio_script.Instance.TocarSFX();
+            Audio_script.Instance.TocarSFX(4);
             manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);
         }
@@ -65,8 +65,18 @@ public class Bandit_script : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // When being hit by a bullet
+        if (other.CompareTag("PianoBullet"))
+        {
+            Audio_script.Instance.TocarSFX(1);
+            Instantiate(goodParticles, gameObject.transform.position, Quaternion.identity);
+            health -= other.GetComponent<Bullet_script>().damage;
+            Destroy(other.gameObject);
+            Health();
+        }
+
         if (other.CompareTag("Bullet"))
         {
+            Audio_script.Instance.TocarSFX(2);
             Instantiate(goodParticles, gameObject.transform.position, Quaternion.identity);
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
@@ -75,6 +85,7 @@ public class Bandit_script : MonoBehaviour
 
         if (other.CompareTag("SlowingBullet"))
         {
+            Audio_script.Instance.TocarSFX(3);
             Instantiate(goodParticles, gameObject.transform.position, Quaternion.identity);
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
@@ -89,6 +100,7 @@ public class Bandit_script : MonoBehaviour
         // When Attacking the Player:
         if (other.CompareTag("Player"))
         {
+            Audio_script.Instance.TocarSFX(5);
             Instantiate(badParticles, gameObject.transform.position, Quaternion.identity);
             Damage();
             manager.GetComponent<Game_Manager_script>().defeated++;
