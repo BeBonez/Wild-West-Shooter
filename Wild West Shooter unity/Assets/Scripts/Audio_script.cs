@@ -27,6 +27,7 @@ public class Audio_script : MonoBehaviour
     {
         PegarVolumeBGSalvo();
         PegarVolumeSFXSalvo();
+        TocarBGMusic(0);
     }
     public void TocarBGMusic(int idBgMusic)
     {

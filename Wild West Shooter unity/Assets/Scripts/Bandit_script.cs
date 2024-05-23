@@ -13,6 +13,8 @@ public class Bandit_script : MonoBehaviour
     public float vSpeed;
     public int health;
     public int steal;
+    [SerializeField] GameObject goodParticles;
+    [SerializeField] GameObject badParticles;
     GameObject manager; 
 
     // how to add game manager stuff here?
@@ -65,6 +67,7 @@ public class Bandit_script : MonoBehaviour
         // When being hit by a bullet
         if (other.CompareTag("Bullet"))
         {
+            Instantiate(goodParticles, gameObject.transform.position, Quaternion.identity);
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
             Health();
@@ -72,6 +75,7 @@ public class Bandit_script : MonoBehaviour
 
         if (other.CompareTag("SlowingBullet"))
         {
+            Instantiate(goodParticles, gameObject.transform.position, Quaternion.identity);
             health -= other.GetComponent<Bullet_script>().damage;
             Destroy(other.gameObject);
             if (speed > 20) 
@@ -85,6 +89,7 @@ public class Bandit_script : MonoBehaviour
         // When Attacking the Player:
         if (other.CompareTag("Player"))
         {
+            Instantiate(badParticles, gameObject.transform.position, Quaternion.identity);
             Damage();
             manager.GetComponent<Game_Manager_script>().defeated++;
             Destroy(gameObject);

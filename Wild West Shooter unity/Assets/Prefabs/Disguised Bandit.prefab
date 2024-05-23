@@ -115,6 +115,8 @@ MonoBehaviour:
   vSpeed: 0
   health: 0
   steal: 0
+  goodParticles: {fileID: 5145254494470720370, guid: a430f4ebb987096418b2ef6ea07a3029, type: 3}
+  badParticles: {fileID: 4920978009411412895, guid: b171e666b1052fd4fa66e24c27db1644, type: 3}
 --- !u!136 &3249733937277594462
 CapsuleCollider:
   m_ObjectHideFlags: 0
