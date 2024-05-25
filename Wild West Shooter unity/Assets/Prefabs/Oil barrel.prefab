@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -5055198967301937767}
   - component: {fileID: 204013974043362180}
   m_Layer: 0
-  m_Name: Oil Barrel
-  m_TagString: Bullet
+  m_Name: Oil barrel
+  m_TagString: SlowingBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

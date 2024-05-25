@@ -22,7 +22,15 @@ public class Spawn_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Wave());
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            StartCoroutine(Wave());
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            StartCoroutine(Wave2());
+        }
+        
         InvokeRepeating("Items", 5f, 5f);
         InvokeRepeating("Trails", 2f, 2f);
     }
@@ -101,6 +109,16 @@ public class Spawn_script : MonoBehaviour
         do
         {
             Spawn(2, bandit, 40f, 50f, 8, 10, 3f, 2); // Wave 10
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+    }
+
+    IEnumerator Wave2()
+    {
+        do
+        {
+            Spawn(1, bandit, 50f, 0f, 6, 10, 3f, 5); // Wave 1
             yield return new WaitForSeconds(timer);
         }
         while (repeatTime > 0);

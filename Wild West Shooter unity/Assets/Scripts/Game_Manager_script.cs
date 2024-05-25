@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class Game_Manager_script : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Game_Manager_script : MonoBehaviour
 
     [SerializeField] GameObject VictoryPanel;
     [SerializeField] GameObject DefeatPanel;
+    [SerializeField] GameObject PausePanel;
     [SerializeField] TMP_Text currentGold;
     [SerializeField] TMP_Text currentFakeGold;
 
@@ -40,13 +42,13 @@ public class Game_Manager_script : MonoBehaviour
         }
 
         // Level 2 goals
-        //if (SceneManager.GetActiveScene().buildIndex == 2)
-        //{
-        //    gold = 100;
-        //    fakeGold = 0;
-        //    defeated = 0;
-        //    goal = 30;
-        //}
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            gold = 100;
+            fakeGold = 0;
+            defeated = 0;
+            goal = 999;
+        }
     }
 
     // Update is called once per frame
@@ -71,13 +73,31 @@ public class Game_Manager_script : MonoBehaviour
         else
         {
             currentFakeGold.text = " ";
-        }       
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && defeated < goal)
+        {
+            Pause();
+        }    
 
         // If not lose, then win!
         Lose();
         Win();     
     }
 
+    private void Pause()
+    {
+        if (Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0f;
+            PausePanel.SetActive(true);
+        } else
+        {
+            Time.timeScale = 1.0f;
+            PausePanel.SetActive(false);
+        }
+        
+    }
     void Lose()
     {
         if (gold <= 0)
