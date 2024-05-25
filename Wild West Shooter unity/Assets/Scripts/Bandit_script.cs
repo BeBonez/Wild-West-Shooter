@@ -6,9 +6,6 @@ using UnityEngine.AI;
 
 public class Bandit_script : MonoBehaviour
 {
-    // Doing the slow factor could be a boolean: half the speed if true and set a timer within to defreeze.
-    // Otherwise the push factor would be added depending on the enemy speed (+/-).
-
     public float speed;
     public float vSpeed;
     public int health;
@@ -16,8 +13,6 @@ public class Bandit_script : MonoBehaviour
     [SerializeField] GameObject goodParticles;
     [SerializeField] GameObject badParticles;
     GameObject manager; 
-
-    // how to add game manager stuff here?
 
     // Start is called before the first frame update
     void Start()

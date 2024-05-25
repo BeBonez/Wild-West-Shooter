@@ -22,6 +22,8 @@ public class Game_Manager_script : MonoBehaviour
     public int defeated;
     private int goal;
 
+    Scene level;
+    public int dangerLevel;
     private float timer;
 
     private void Awake()
@@ -32,6 +34,8 @@ public class Game_Manager_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = SceneManager.GetActiveScene();
+
         // Level 1 goals
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -82,7 +86,28 @@ public class Game_Manager_script : MonoBehaviour
 
         // If not lose, then win!
         Lose();
-        Win();     
+        if (level.buildIndex == 1) 
+        {
+            Win();
+        }
+        if (level.buildIndex == 2)
+        {
+
+            if (defeated >= goal)
+            {
+                // SpawnBoss()
+            }
+
+            if (dangerLevel == 4)
+            {
+                timer += Time.deltaTime;
+                if (timer >= 0.5f)
+                {
+                    VictoryPanel.SetActive(true);
+                    Time.timeScale = 0f;
+                }
+            }
+        }    
     }
 
     private void Pause()

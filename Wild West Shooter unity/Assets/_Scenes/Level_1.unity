@@ -226,7 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314ce3e02e3ffe645820708309e2ab74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
+  normalBandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
+  tankBandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
+  fastBandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
+  zigzagBandit: {fileID: 6532324603709782977, guid: 2b394e40cb4ce7b488740afeba2370d7, type: 3}
   tree: {fileID: 1766113784712848481, guid: 9755a94c611c87a4aacb1ae05ab78c69, type: 3}
   trail: {fileID: 7843538485252509231, guid: 8cf1106ff97cafd479c0d6d83bbd8f5b, type: 3}
   box: {fileID: 73040571765570421, guid: 68caefc2ed4c290428892b2cafb615f1, type: 3}
