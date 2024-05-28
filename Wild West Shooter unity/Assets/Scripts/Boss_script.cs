@@ -22,8 +22,12 @@ public class Boss_script : MonoBehaviour
 
     void Start()
     {
-        // Enter from the top. Stop after a few seconds.
+        // Get the manager reference
         manager = GameObject.FindGameObjectWithTag("Manager");
+
+        // Enter from the top. Stop after a few seconds.
+
+        // Start Attacking
         StartCoroutine(Wave());
     }
     IEnumerator Wave()

@@ -6,28 +6,30 @@ using UnityEngine.AI;
 
 public class Bandit_script : MonoBehaviour
 {
+    // Stats
     public float speed;
     public float vSpeed;
     public int health;
     public int steal;
+    
+    // Particles
     [SerializeField] GameObject goodParticles;
     [SerializeField] GameObject badParticles;
-    GameObject manager; 
+    
+    GameObject manager;
+    bool up = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        // checkSide();
+        CheckSide();
         manager = GameObject.FindGameObjectWithTag("Manager");
     }
-    void checkSide()
+    void CheckSide()
     {
         if (gameObject.transform.position.x == 1100)
         {
-            transform.Rotate(new Vector3(0, -90, 0));
-        } else
-        {
-            transform.Rotate(new Vector3(0, 90, 0));
+            speed *= -1;
         }
     }
 
@@ -37,7 +39,8 @@ public class Bandit_script : MonoBehaviour
         Health();
         transform.Translate(speed * Time.deltaTime, 0f, 0f);
         CheckBoundaries();
-        transform.Translate(vSpeed * Time.deltaTime, 0f, 0f);
+        transform.Translate(0f, 0f, vSpeed * Time.deltaTime);
+        UpAndDown();
     }
     void Health()
     {
@@ -87,6 +90,9 @@ public class Bandit_script : MonoBehaviour
             if (speed > 20) 
             {
                 speed -= 20;
+            } else if (speed < -20)
+            {
+                speed += 20;
             }
             
             Health();
@@ -106,5 +112,24 @@ public class Bandit_script : MonoBehaviour
     void Damage()
     {
         manager.GetComponent<Game_Manager_script>().TakeDamage(steal);
+    }
+
+    void UpAndDown()
+    {
+        if (up == true)
+        {
+            transform.Translate(0f, 40 * Time.deltaTime, 0f);
+            if (transform.position.y > 120f)
+            {
+                up = false;
+            }
+        } else
+        {
+            transform.Translate(0f, -40 * Time.deltaTime, 0f);
+            if (transform.position.y < 80f)
+            {
+                up = true;
+            }
+        }
     }
 }

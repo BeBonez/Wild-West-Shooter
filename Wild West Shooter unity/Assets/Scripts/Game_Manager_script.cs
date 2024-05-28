@@ -10,27 +10,29 @@ public class Game_Manager_script : MonoBehaviour
 {
     // This script handle game States (Win, lose) as well as the HUD
 
-    // HUD
+    [Header("HUD")]
     [SerializeField] GameObject VictoryPanel;
     [SerializeField] GameObject DefeatPanel;
     [SerializeField] GameObject PausePanel;
     [SerializeField] Slider progressBar;
 
-    // Gold
+    [Header("Gold")]
     [SerializeField] TMP_Text currentGold;
-    [SerializeField] TMP_Text currentFakeGold;
     public int gold;
 
-    // Power Ups
+    [Header("Power Ups")]
+    [SerializeField] TMP_Text currentFakeGold;
     public int fakeGold;
     public float trainSpeed;
-    
-    // Game States
+
+    [Header("Game States")]
     public int defeated;
-    private int goal;
-    Scene level;
     public int dangerLevel;
-    private float timer;
+
+    // Game States
+    Scene level;
+    private int goal;
+    private float timer; // This should've fixed the win with 1 enemy. It did not.
 
 
     private void Awake()
@@ -107,7 +109,7 @@ public class Game_Manager_script : MonoBehaviour
                 // SpawnBoss()
             }
 
-            if (dangerLevel == 4)
+            if (dangerLevel >= 4)
             {
                 timer += Time.deltaTime;
                 if (timer >= 0.5f)
@@ -166,6 +168,5 @@ public class Game_Manager_script : MonoBehaviour
         {
             fakeGold -= amount;
         }
-        
     }
 }

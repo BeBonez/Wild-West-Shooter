@@ -8,16 +8,22 @@ public class Spawn_script : MonoBehaviour
 {
     // There must be a way to improve this wave code in a further build...
 
-    // [SerializeField] float levelProgression;
-
+    [Header("Enemies")]
     [SerializeField] GameObject normalBandit;
     [SerializeField] GameObject tankBandit;
     [SerializeField] GameObject fastBandit;
     [SerializeField] GameObject zigzagBandit;
 
+    [Header("Parallax")]
     [SerializeField] GameObject tree;
     [SerializeField] GameObject trail;
     [SerializeField] GameObject box;
+
+    [Header("Boss")]
+    [SerializeField] GameObject normalBoss;
+    [SerializeField] GameObject tankBoss;
+    [SerializeField] GameObject fastBoss;
+    [SerializeField] GameObject zigzagBoss;
 
     int repeatTime = 0;
     float timer;
@@ -151,7 +157,7 @@ public class Spawn_script : MonoBehaviour
             {
                 side = -1100;
             }
-            Instantiate(enemy, new Vector3(side, 5, Random.Range(-340, 400)), Quaternion.identity);
+            Instantiate(enemy, new Vector3(side, 80, Random.Range(-340, 400)), Quaternion.identity);
         }
         repeatTime--;
     }
