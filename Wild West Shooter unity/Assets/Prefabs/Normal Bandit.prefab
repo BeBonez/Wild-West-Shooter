@@ -67,14 +67,18 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4284491476729c9448c11bb7491718e5, type: 2}
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
     - target: {fileID: -7511558181221131132, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 4284491476729c9448c11bb7491718e5, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2977720626055768323, guid: 8959ae55a3cffeb42a1369489895ecda, type: 3}
     - target: {fileID: 919132149155446097, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
       propertyPath: m_Name
-      value: Disguised Bandit
+      value: Normal Bandit
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5321ba55ea81b6a488145272849e145c, type: 3}
       propertyPath: m_TagString

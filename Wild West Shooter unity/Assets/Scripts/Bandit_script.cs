@@ -17,7 +17,7 @@ public class Bandit_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        checkSide();
+        // checkSide();
         manager = GameObject.FindGameObjectWithTag("Manager");
     }
     void checkSide()
@@ -35,7 +35,7 @@ public class Bandit_script : MonoBehaviour
     void Update()
     {
         Health();
-        transform.Translate(0f, 0f, speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime, 0f, 0f);
         CheckBoundaries();
         transform.Translate(vSpeed * Time.deltaTime, 0f, 0f);
     }
@@ -44,7 +44,7 @@ public class Bandit_script : MonoBehaviour
         if (health <= 0)
         {
             Audio_script.Instance.TocarSFX(4);
-            manager.GetComponent<Game_Manager_script>().defeated++;
+            manager.GetComponent<Game_Manager_script>().defeated++;            
             Destroy(gameObject);
         }
     }

@@ -10,21 +10,28 @@ public class Game_Manager_script : MonoBehaviour
 {
     // This script handle game States (Win, lose) as well as the HUD
 
+    // HUD
     [SerializeField] GameObject VictoryPanel;
     [SerializeField] GameObject DefeatPanel;
     [SerializeField] GameObject PausePanel;
+    [SerializeField] Slider progressBar;
+
+    // Gold
     [SerializeField] TMP_Text currentGold;
     [SerializeField] TMP_Text currentFakeGold;
-
     public int gold;
+
+    // Power Ups
     public int fakeGold;
     public float trainSpeed;
+    
+    // Game States
     public int defeated;
     private int goal;
-
     Scene level;
     public int dangerLevel;
     private float timer;
+
 
     private void Awake()
     {
@@ -82,7 +89,9 @@ public class Game_Manager_script : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && defeated < goal)
         {
             Pause();
-        }    
+        }
+ 
+        UpdateProgress();
 
         // If not lose, then win!
         Lose();
@@ -110,6 +119,10 @@ public class Game_Manager_script : MonoBehaviour
         }    
     }
 
+    public void UpdateProgress()
+    {
+        progressBar.value = (float)defeated / goal;
+    }
     private void Pause()
     {
         if (Time.timeScale == 1.0f)
