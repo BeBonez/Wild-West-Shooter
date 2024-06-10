@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18202291, g: 0.22771311, b: 0.30740282, a: 1}
+  m_IndirectSpecularColor: {r: 0.18202256, g: 0.22771269, b: 0.30740207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,10 @@ MonoBehaviour:
   tree: {fileID: 1766113784712848481, guid: 9755a94c611c87a4aacb1ae05ab78c69, type: 3}
   trail: {fileID: 7843538485252509231, guid: 8cf1106ff97cafd479c0d6d83bbd8f5b, type: 3}
   box: {fileID: 73040571765570421, guid: 68caefc2ed4c290428892b2cafb615f1, type: 3}
+  normalBoss: {fileID: 0}
+  tankBoss: {fileID: 0}
+  fastBoss: {fileID: 0}
+  zigzagBoss: {fileID: 0}
 --- !u!114 &79705782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +254,8 @@ MonoBehaviour:
   PausePanel: {fileID: 763080294}
   progressBar: {fileID: 253561649}
   currentGold: {fileID: 1111503478}
-  currentFakeGold: {fileID: 1197809196}
   gold: 100
+  currentFakeGold: {fileID: 1197809196}
   fakeGold: 0
   trainSpeed: 1
   defeated: 0
@@ -518,7 +522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -9, y: 4.0000124}
+  m_AnchoredPosition: {x: -9, y: 4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &253561649
@@ -999,8 +1003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233.1, y: -121.9}
-  m_SizeDelta: {x: 160, y: 56}
+  m_AnchoredPosition: {x: 208.3999, y: -121.9}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &601007034
 MonoBehaviour:
@@ -1078,7 +1082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8839501e2207f448be6f6e4d3c9a862, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 608c92f15197fae4394ac072d81ed24f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1649,7 +1653,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c42f61b2929aeab469fa91172f990da5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf691932e5e9bdb439df5f9a5098fccc, type: 2}
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
     - target: {fileID: 919132149155446097, guid: c42f61b2929aeab469fa91172f990da5, type: 3}
       propertyPath: m_Name
       value: Train
@@ -1764,7 +1768,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf691932e5e9bdb439df5f9a5098fccc, type: 2}
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
+    - target: {fileID: -393149598308066458, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Name
       value: Bottom Wagon Slot
@@ -1774,7 +1782,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -242165637326713887, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       insertIndex: -1
@@ -2043,8 +2052,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231.20001, y: -15.6}
-  m_SizeDelta: {x: 160, y: 56}
+  m_AnchoredPosition: {x: 208.3999, y: -15.6}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989400532
 MonoBehaviour:
@@ -2122,7 +2131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f195f25460922e47a9ffff59c2bfca3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 585f7e1bcf14132489cd35e59a92ef2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3767,7 +3776,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf691932e5e9bdb439df5f9a5098fccc, type: 2}
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
+    - target: {fileID: -393149598308066458, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Name
       value: Top Wagon Slot
@@ -3777,7 +3790,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -242165637326713887, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       insertIndex: -1
@@ -3885,7 +3899,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf691932e5e9bdb439df5f9a5098fccc, type: 2}
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
+    - target: {fileID: -393149598308066458, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3518e38cc77d83459ec0ae010353803, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       propertyPath: m_Name
       value: Middle Wagon Slot
@@ -3895,7 +3913,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -242165637326713887, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fad93115f452484ebbd315f8c8e2abd, type: 3}
       insertIndex: -1
@@ -4417,91 +4436,6 @@ Transform:
   - {fileID: 843893858}
   m_Father: {fileID: 2135087376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1853098719
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 285.9307
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 66.50557
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      propertyPath: m_Name
-      value: Freight_Wagon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1853098721}
-  m_SourcePrefab: {fileID: 100100000, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
---- !u!1 &1853098720 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cc363e994c36db643ad5f3775376a50c, type: 3}
-  m_PrefabInstance: {fileID: 1853098719}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1853098721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853098720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f241bdad5d74e42b1b9064ca194dad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  goodParticles: {fileID: 0}
-  normalBandit: {fileID: 0}
-  tankBandit: {fileID: 0}
-  fastBandit: {fileID: 0}
-  zigzagBandit: {fileID: 0}
-  type: 0
-  health: 100
 --- !u!1 &1880201974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5561,4 +5495,3 @@ SceneRoots:
   - {fileID: 1682303966}
   - {fileID: 2052073502}
   - {fileID: 25832343}
-  - {fileID: 1853098719}
