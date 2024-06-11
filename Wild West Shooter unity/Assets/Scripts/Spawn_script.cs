@@ -55,7 +55,7 @@ public class Spawn_script : MonoBehaviour
     {
         do
         {
-            Spawn(1, normalBandit, 40f, 0f, 6, 10, 3f, 5); // Wave 1 - Show enemies can come both sides.
+            Spawn(1, normalBandit, 45f, 0f, 6, 10, 3f, 5); // Wave 1 - Show enemies can come both sides.
             yield return new WaitForSeconds(timer);
         }
         while (repeatTime > 0);
@@ -130,7 +130,74 @@ public class Spawn_script : MonoBehaviour
     {
         do
         {
-            Spawn(1, normalBandit, 50f, 0f, 6, 10, 3f, 5); // Wave 1
+            Spawn(3, normalBandit, 45f, 15f, 8, 5, 4f, 3); // Wave 1 - Start with buffed normals. Introduce having 3 enemies at a time.
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(1, normalBandit, 30f, 20f, 8, 5, 0.5f, 10); // Wave 2 - swarms the player with normals, giving a little scare but not being actually too hard
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(3, tankBandit, 25f, 30f, 32, 40, 10f, 2); // Wave 3 - With slow entrance this wave gives downtime while improving upon the hard-to-aim tanks challenge
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(1, fastBandit, 90f, 20f, 4, 10, 4f, 4); // Wave 4 - Quick enemies that will shoot while tanks protect them!
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        yield return new WaitForSeconds(3); // Gives some downtime so that the next enemy combo don't overlap
+
+        do
+        {
+            Spawn(1, fastBandit, 160f, 0f, 1, 10, 1f, 5); // Wave 5 - Immenselly speedy enemies as if the last wave came improved
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(2, tankBandit, 5f, 40f, 100, 80, 2f, 2); // Wave 6 - Very Tanky and slow bandits last for more waves
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(4, normalBandit, 55f, 25f, 8, 35, 7f, 3); // Wave 7 - a little stronger buffed enemy, higher quantity per spawn!
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        //FINISHING
+
+        do
+        {
+            Spawn(2, zigzagBandit, 45f, 70f, 12, 15, 3f, 4); // Wave 8 - Zigzag enemy comeback with higher health!
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(3, zigzagBandit, 30f, 250f, 12, 30, 2f, 3); // Wave 9 - Extreme vertical speed with higher health!
+            yield return new WaitForSeconds(timer);
+        }
+        while (repeatTime > 0);
+
+        do
+        {
+            Spawn(2, tankBandit, 60f, 25f, 28, 30, 2f, 2); // Wave 10 - Finishes with speedy tankers almost as if the ultimate challenge, just before the boss!
             yield return new WaitForSeconds(timer);
         }
         while (repeatTime > 0);

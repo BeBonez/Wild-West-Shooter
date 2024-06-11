@@ -120,7 +120,6 @@ public class Game_Manager_script : MonoBehaviour
             }
         }    
     }
-
     public void UpdateProgress()
     {
         progressBar.value = (float)defeated / goal;
