@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18202256, g: 0.22771269, b: 0.30740207, a: 1}
+  m_IndirectSpecularColor: {r: 0.18202291, g: 0.22771311, b: 0.30740282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,7 @@ MonoBehaviour:
   tree: {fileID: 1766113784712848481, guid: 9755a94c611c87a4aacb1ae05ab78c69, type: 3}
   trail: {fileID: 7843538485252509231, guid: 8cf1106ff97cafd479c0d6d83bbd8f5b, type: 3}
   box: {fileID: 73040571765570421, guid: 68caefc2ed4c290428892b2cafb615f1, type: 3}
+  cactus: {fileID: 6800805785216966864, guid: be5a5a90410bf46419529799083b9d32, type: 3}
   normalBoss: {fileID: 0}
   tankBoss: {fileID: 0}
   fastBoss: {fileID: 0}
@@ -1136,7 +1137,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -131.3}
-  m_SizeDelta: {x: 160, y: 56}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615488840
 MonoBehaviour:
@@ -1214,7 +1215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8839501e2207f448be6f6e4d3c9a862, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 608c92f15197fae4394ac072d81ed24f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1260,7 +1261,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.5613208, g: 0.6859456, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3221,7 +3222,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3313,7 +3314,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -133}
-  m_SizeDelta: {x: 160, y: 56}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345214633
 MonoBehaviour:
@@ -3391,7 +3392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8839501e2207f448be6f6e4d3c9a862, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 608c92f15197fae4394ac072d81ed24f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3445,7 +3446,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -57.1}
-  m_SizeDelta: {x: 160, y: 56}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446639531
 MonoBehaviour:
@@ -3523,7 +3524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f195f25460922e47a9ffff59c2bfca3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 585f7e1bcf14132489cd35e59a92ef2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3577,7 +3578,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -58}
-  m_SizeDelta: {x: 160, y: 56}
+  m_SizeDelta: {x: 236.2, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459185297
 MonoBehaviour:
@@ -3655,7 +3656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f195f25460922e47a9ffff59c2bfca3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 585f7e1bcf14132489cd35e59a92ef2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

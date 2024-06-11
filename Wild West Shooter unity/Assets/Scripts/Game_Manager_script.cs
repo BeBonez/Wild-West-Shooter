@@ -60,7 +60,7 @@ public class Game_Manager_script : MonoBehaviour
             gold = 100;
             fakeGold = 0;
             defeated = 0;
-            goal = 999;
+            goal = 88;
         }
     }
 
