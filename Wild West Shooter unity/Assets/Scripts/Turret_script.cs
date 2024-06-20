@@ -32,6 +32,7 @@ public class Turret_script : MonoBehaviour
             Shoot();
             shootTime = 0;
         }
+
         if (manager.GetComponent<Game_Manager_script>().trainSpeed > 1)
         {
             manager.GetComponent<Game_Manager_script>().trainSpeed -= 0.1f * Time.deltaTime;

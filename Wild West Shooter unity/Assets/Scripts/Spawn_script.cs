@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Boss_script;
 
 public class Spawn_script : MonoBehaviour
 {
@@ -21,10 +22,9 @@ public class Spawn_script : MonoBehaviour
     [SerializeField] GameObject cactus;
 
     [Header("Boss")]
-    [SerializeField] GameObject normalBoss;
-    [SerializeField] GameObject tankBoss;
-    [SerializeField] GameObject fastBoss;
-    [SerializeField] GameObject zigzagBoss;
+    [SerializeField] GameObject boss;
+
+    IEnumerator wave;
 
     int repeatTime = 0;
     float timer;
@@ -35,18 +35,39 @@ public class Spawn_script : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            StartCoroutine(Wave());
+            wave = Wave();
+            StartCoroutine(wave);
         }
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            StartCoroutine(Wave2());
+            wave = Wave2();
+            StartCoroutine(wave);
         }
         
         InvokeRepeating("Items", 5f, 5f);
         InvokeRepeating("Trails", 2f, 2f);
     }
     #endregion
-    
+
+    #region BOSS CHEAT
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                StopCoroutine(wave);
+
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    Destroy(enemies[i]);
+                }
+            }
+        }
+    }
+    #endregion
+
     // Note: Improve understanding of coroutines. I think that some parts of the code are not working as intended: mainly when I crank spawnspeed and iteration amount way up. I also did not understand how to make downtimes.
 
     #region LEVEL 1
@@ -282,7 +303,15 @@ public class Spawn_script : MonoBehaviour
     }
     void Trails()
     {
+        Scene level = SceneManager.GetActiveScene();
+
         Instantiate(trail, new Vector3(0, 0, 863), Quaternion.identity);
+
+        if (level.buildIndex == 2)
+        {
+            Instantiate(trail, new Vector3(700, 0, 863), Quaternion.identity);
+            Instantiate(trail, new Vector3(-700, 0, 863), Quaternion.identity);
+        }
     }
     #endregion
 }

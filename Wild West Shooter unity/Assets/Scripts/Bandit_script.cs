@@ -27,7 +27,7 @@ public class Bandit_script : MonoBehaviour
     }
     void CheckSide()
     {
-        if (gameObject.transform.position.x == 1100)
+        if (gameObject.transform.position.x >= 500)
         {
             speed *= -1;
         }

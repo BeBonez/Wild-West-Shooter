@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using static Boss_script;
 
 public class Game_Manager_script : MonoBehaviour
 {
@@ -26,14 +27,15 @@ public class Game_Manager_script : MonoBehaviour
     public float trainSpeed;
 
     [Header("Game States")]
+    [SerializeField] GameObject boss;
     public int defeated;
     public int dangerLevel;
 
     // Game States
     Scene level;
     private int goal;
-    private float timer; // This should've fixed the win with 1 enemy. It did not.
-
+    private float timer;
+    private int bossAlive = 0;
 
     private void Awake()
     {
@@ -103,10 +105,16 @@ public class Game_Manager_script : MonoBehaviour
         }
         if (level.buildIndex == 2)
         {
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                SpawnBoss();
+                bossAlive++;
+            }
 
             if (defeated >= goal)
             {
-                // SpawnBoss()
+                SpawnBoss();
+                bossAlive++;
             }
 
             if (dangerLevel >= 4)
@@ -119,6 +127,26 @@ public class Game_Manager_script : MonoBehaviour
                 }
             }
         }    
+    }
+
+    public void SpawnBoss()
+    {
+        if (bossAlive == 0)
+        {
+            GameObject spawnedBoss;
+
+            spawnedBoss = Instantiate(boss, new Vector3(700, 25, -1120), Quaternion.identity);
+            spawnedBoss.GetComponent<Boss_script>().type = bossType.tank;
+
+            spawnedBoss = Instantiate(boss, new Vector3(-700, 25, -1120), Quaternion.identity);
+            spawnedBoss.GetComponent<Boss_script>().type = bossType.zigzag;
+
+            spawnedBoss = Instantiate(boss, new Vector3(700, 25, -700), Quaternion.identity);
+            spawnedBoss.GetComponent<Boss_script>().type = bossType.fast;
+
+            spawnedBoss = Instantiate(boss, new Vector3(-700, 25, -700), Quaternion.identity);
+            spawnedBoss.GetComponent<Boss_script>().type = bossType.normal;
+        }
     }
     public void UpdateProgress()
     {
@@ -148,9 +176,15 @@ public class Game_Manager_script : MonoBehaviour
     void Win()
     {
         if (defeated >= goal)
-        {           
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Destroy(enemies[i]);
+            }
+
             timer += Time.deltaTime;
-            if (timer >= 0.5f)
+            if (timer >= 1.5f)
             {
                 VictoryPanel.SetActive(true);
                 Time.timeScale = 0f;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18202269, g: 0.22771284, b: 0.30740228, a: 1}
+  m_IndirectSpecularColor: {r: 0.18202291, g: 0.22771311, b: 0.30740282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -259,6 +259,7 @@ MonoBehaviour:
   currentFakeGold: {fileID: 1197809196}
   fakeGold: 0
   trainSpeed: 1
+  boss: {fileID: 0}
   defeated: 0
   dangerLevel: 0
 --- !u!1001 &204915986
